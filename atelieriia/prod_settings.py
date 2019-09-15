@@ -1,4 +1,4 @@
-from portfolio.settings import *
+from atelieriia.settings import *
 import dj_database_url
 DEBUG = False
 TEMPLATE_DEBUG = False

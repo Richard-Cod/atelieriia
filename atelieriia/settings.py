@@ -15,12 +15,21 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def get_env_variable(var_name,default_value):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        if default_value is None:
+            erreur = "Set the {} environment variable".format(var_name)
+            raise ImproperlyConfigured(erreur)
+        else:
+            return default_value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#(5hd&!%c4)r8i$t!))y_0u^kpxdvgt*74p%=cx4ycf$*e26wt'
+SECRET_KEY = get_env_variable('SECRET_KEY','#(5hd&!%c4)r8i$t!))y_0u^kpxdvgt*74p%=cx4ycf$*e26wt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

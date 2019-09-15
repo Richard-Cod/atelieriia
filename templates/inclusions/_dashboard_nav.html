@@ -1,0 +1,50 @@
+    <div class="order-1 order-md-1 col-12 col-md-2 border-right py-3 bg-sidebar-light">
+      <div>
+        <div expand="md">
+          <div class="d-md-none">
+            <form class="my-0 form d-md-none d-inline w-25">
+              <input class="form-control mr-md-2" type="text" name="q" placeholder="Search" aria-label="Search" value=""><button class="btn btn-outline-secondary d-none" type="submit">Rechercher</button>
+            </form>
+          </div>
+          <div class="false">
+            <ul class="mb-4 list-group">
+            	<a class="list-group-item px-2 mb-1 " aria-current="page" href="{% url 'cours' %}">Cours</a>
+            	<a class="list-group-item px-2 mb-1"  href="{% url 'projets' %}">Projets</a>
+
+            	<a class="list-group-item px-2 mb-1" href="{% url 'posts' %}">Posts</a>
+              
+            </ul>
+
+            <ul class="mb-4 list-group"><a class="list-group-item px-2 d-none" href="{% url 'messages' %}">Messages</a>
+              <a class="list-group-item px-2" href="{% url 'questions' %}">Questions</a>
+              
+            </ul>
+
+
+            <!--
+            <ul class="mb-4 list-group">
+              <a class="list-group-item px-2 text-success" href="/from-zero">Start Here</a>
+            </ul>
+
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+    ul =   document.getElementsByClassName('list-group')[1]
+
+
+    ul.addEventListener('click',(e) => {
+      if (e.target.className ="list-group-item") {
+        console.log(e.target)
+        past = document.getElementsByClassName('active')[0]
+        past.removeClass('active')
+
+        e.target.addClass('active')
+      }
+    })
+
+    </script>

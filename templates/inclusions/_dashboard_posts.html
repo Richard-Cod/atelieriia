@@ -1,0 +1,183 @@
+    <div class="order-2 order-md-2 col-12 col-md-10 min-height min-page-height py-3">
+      <div>
+       
+        <div class="text-left">
+          <div class="mb-2">
+            <div>
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h1>Posts</h1>
+                </div>
+
+
+
+                <div class="flex-shrink-1">
+                  <div class="dropdown">
+                    <button type="button" aria-haspopup="true" aria-expanded="false" class="btn btn-outline-secondary my-1 float-right dropdown-toggle btn btn-secondary">
+                      <span class="px-1">Recent</span>
+                    </button>
+                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                      <button type="button" name="Fire" value="-rank" tabindex="0" class="false dropdown-item">Fire</button>
+                      <button type="button" name="Ice" value="rank" tabindex="0" class="false dropdown-item">Ice</button>
+                      <button type="button" name="Recent" value="-timestamp" tabindex="0" class="active dropdown-item">Recent</button>
+                      <button type="button" name="Older" value="timestamp" tabindex="0" class="false dropdown-item">Older</button>
+                      <button type="button" name="A-Z" value="title" tabindex="0" class="false dropdown-item">A-Z</button>
+                      <button type="button" name="Z-A" value="-title" tabindex="0" class="false dropdown-item">Z-A</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            </div>
+          </div>
+
+         
+
+            <span class="btn btn-link btn-sm text-center d-none"></span>
+
+      </div>
+
+
+
+
+     <div class="row">
+
+      <div class="col-md-9">
+
+
+<div class="border-bottom mb-3 pb-5" post="[object Object]">
+      <a class="undefined" default="" href="/blog/jupyter-production-server-on-docker-heroku">
+        <img class="card-img-top" src="https://static.codingforentrepreneurs.com/media/cfe-blog/jupyter-production-server-on-docker-heroku/Jupyter_x_Docker_to_Heroku.jpg" alt="Build a Python Jupyter Notebook Server with Docker &amp; Heroku logo">
+      </a>
+      <h1>
+        <a class="undefined" default="" href="/blog/jupyter-production-server-on-docker-heroku">Build a Python Jupyter Notebook Server with Docker &amp; Heroku</a>
+     </h1>
+     <p class="mb-0 pb-0">
+      <span format="ll">Aug 22, 2019</span>
+      <span class="mx-1">· <a class="undefined" href="/u/jmitchel3">Justin Mitchel</a> </span>
+    </p>
+    <hr>
+    <div>
+      <div class="post-inline-preview">
+        <div class="undefined   ">
+          <p>Jupyter notebooks have become my go to choice for running python code. There are several reasons for this but it turns a bunch of code into a logical story, a workflow, as well as an interactive environment. </p>
+          <p>It's hard to explain exactly how awesome Jupyter notebooks are until you really start using them. For long time followers of 
+            <a target="_self" href="https://cfe.sh">CFE</a>, Jupyter call also run with Django using the popular django extension
+           <a target="_self" href="https://django-extensions.readthedocs.io/en/latest/shell_plus.html">shell_plus</a>.</p>
+           <p>Docker is another technology that you'll have to learn to love. It makes deploying code much, much easier. If you want to truly appreciate the depths, check out <a class="undefined active" aria-current="page" href="/">this blog post</a>
+            on launching a Jupyter Notebook server manually on AWS. It's great to know how to do it without docker, but Docker has definitely made my life much much easier.</p>
+            <p>So in this post we'll deploy an Ubuntu image with Nginx and Jupyter notebooks. If you know Docker, this be as simple as it comes. If you're new to Docker, you'll learn a thing or two.</p><p>Ready?</p><h3>Tech Stack</h3><ul><li>Ubuntu 18.04 in a Docker container</li>
+              <li>Python 3.6</li>
+              <li>Django 2.2</li>
+              <li>Nginx</li>
+              <li>PostgreSQL</li>
+            </ul>
+            <h3>Final Project Structure</h3>
+            <div>
+              <button title="" type="button" class="btn 
+                   file</h5><div><button title="" type="button" class="btn btn-outline-secondary btn-sm rounded-0 clipboard-btn" data-clipboard-text="pip freeze > requirements.txt">
+          Copy</button>
+
+              <pre style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(0, 43, 54) none repeat scroll 0% 0%; color: rgb(131, 148, 150);"><code>pip freeze &gt; requirements.txt</code>
+              </pre>
+          </div>
+
+  <h5>7. Run Migration &amp; Createsuperuser</h5>
+  <div>
+
+      <button title="" type="button" class="btn btn-outline-secondary btn-sm rounded-0 clipboard-btn" data-clipboard-text="python manage.py migrate
+            python manage.py createsuperuser">
+
+  Copy</button>
+        <pre style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(0, 43, 54) none repeat scroll 0% 0%; color: rgb(131, 148, 150);">
+          <code>python manage.py migrate
+                  python manage.py createsuperuser</code>
+        </pre>
+
+  </div>
+
+  <p>That's it.</p>
+
+<span>
+  <iframe src="https://www.youtube.com/embed/pDQDvV4QY7I?rel=0&amp;showinfo=0" allowfullscreen="" width="560" height="315" frameborder="0">
+  </iframe>
+</span>
+
+  </div>
+  </div> 
+      <a class="btn btn-sm btn-cfe my-4" default="" href="/blog/create-a-blank-django-project">View Post</a>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-3 d-none d-md-block" user="[object Object]">
+  <form attributes="[object Object]" class="mb-3 null null">
+    <div>
+      <input required="" name="email" id="email-capture" placeholder="Your email" type="email" class="undefined form-control" value=""><span></span>
+    </div>
+    <button type="submit" class="btn btn-warning btn-block mt-1 lead ">Get Started for Free </button>
+  </form>
+
+    <div class="mb-3">
+      <div class="card">
+        <div class="card-header">Trending</div>
+        <div class="list-group list-group-flush">
+          <a class="list-group-item" href="/blog/install-python-django-on-windows">Install Python &amp; Django on Windows</a>
+          <a class="list-group-item" href="/blog/install-django-on-mac-or-linux">Install Python 3.6, Virtualenv, &amp; Django  on Mac</a>
+          <a class="list-group-item" href="/blog/install-tensorflow-gpu-windows-cuda-cudnn">Install Tensorflow GPU on Windows using CUDA and cuDNN</a>
+          <a class="list-group-item" href="/blog/install-opencv-3-for-python-on-windows">Install OpenCV 3 for Python on Windows</a>
+          <a class="list-group-item" href="/blog/how-to-create-a-custom-django-user-model">How to Create a Custom Django User Model</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="card">
+        <div class="card-header">Featured</div>
+        <div class="list-group list-group-flush">
+          <a class="list-group-item" href="/blog/jupyter-production-server-on-docker-heroku">Build a Python Jupyter Notebook Server with Docker &amp; Heroku</a>
+          <a class="list-group-item" href="/blog/django-manytomanyfield-via-comma-separated-string">Django Tutorial - ManyToManyField via a Comma Separated String in Admin &amp; Forms</a>
+          <a class="list-group-item" href="/blog/python-tutorial-google-geocoding-api">Python Tutorial - Google Geocoding API</a>
+          <a class="list-group-item" href="/blog/django-foreign-keys-limiting-choices-in-forms">Django Foreign Keys: Limiting Choices in Forms</a>
+          <a class="list-group-item" href="/blog/django-docker-production-heroku">Django x Docker to Production on Heroku</a>
+        </div>
+
+        </div>
+      </div>
+      <div class="mb-3">
+        <div class="card">
+          <div class="card-header">Discover</div>
+          <div class="list-group list-group-flush">
+            <a class="list-group-item" href="/blog/django-code-review">Django Code Review</a>
+            <a class="list-group-item" href="/blog/django-likes">Django Likes</a>
+            <a class="list-group-item" href="/blog/django-app-structure">Django App Structure</a>
+            <a class="list-group-item" href="/blog/markdown-cheatsheet">Markdown Cheatsheet</a>
+            <a class="list-group-item" href="/blog/brian-michael-riley-surestop-guardian-bikes">Episode #1 - Brian Michael Riley</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary">Load more</button>
+    </div>
+
+</div>
+       
+
+
+ </div>
+    </div>
+
+     
+
+      
+  
+
+
+

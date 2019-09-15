@@ -1,0 +1,1 @@
+web: gunicorn atelieriia.wsgi --log-file -

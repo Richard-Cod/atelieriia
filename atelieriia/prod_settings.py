@@ -8,4 +8,4 @@ DATABASES['default'] = dj_database_url.config()
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ALLOWED_HOST = ['atelieriia.herokuapp.com']
+ALLOWED_HOSTS = ['atelieriia.herokuapp.com']

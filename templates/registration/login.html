@@ -7,14 +7,14 @@
 
 
 <h2 class="text-center">CONNEXION</h2>
-<div style="border: solid 0.51px;box-shadow: 1px 2px 6px blue" class="col-10 col-md-3 mx-auto text-center  mt-4">
+<div style="border: solid 0.51px;box-shadow: 1px 2px 6px blue" class="col-10 col-md-4 mx-auto text-center  mt-4">
 	<h1 >Login</h1>
 
      
 			<form style="" class="mt-4" method="POST" action="">
 				{% csrf_token %}
 				{{ form.as_p }}
-				<button type="submit">Se connecter</button>
+				<button class="mb-2 btn btn-primary" type="submit">Se connecter</button>
 			</form>
 
       

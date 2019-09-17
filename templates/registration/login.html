@@ -4,20 +4,35 @@
 {% block title %} Login {% endblock%}
 {% block content%}
 
-<h2>CONNEXION</h2>
-<div class="col-10 col-md-3 mx-auto text-center  mt-4">
-	<h1>Login</h1>
 
-      <div>
-			<form class="mt-4" method="POST" action="">
+
+<h2 class="text-center">CONNEXION</h2>
+<div style="border: solid 0.51px;box-shadow: 1px 2px 6px blue" class="col-10 col-md-3 mx-auto text-center  mt-4">
+	<h1 >Login</h1>
+
+     
+			<form style="" class="mt-4" method="POST" action="">
 				{% csrf_token %}
 				{{ form.as_p }}
 				<button type="submit">Se connecter</button>
 			</form>
 
-       </div>
+      
 
 </div>
+
+
+<style>
+	label{
+	font-weight: bold
+}
+form{
+	text-align: -moz-right
+}
+input{
+	border: solid 2px blueviolet;
+}
+</style>
 
 
 
@@ -25,3 +40,21 @@
 {% endblock%}
 
 
+
+  {% block dashnav%}  
+  {% endblock %}
+
+
+
+   {% block state %}      
+   {% endblock %}
+
+      {% block end_dash %} 
+      {% endblock %}
+
+   <script>
+   	username = document.getElementsByTagName('input')[2]
+   	password = document.getElementsByTagName('input')[3]
+
+   	password.classList += 'lolo'
+   </script>

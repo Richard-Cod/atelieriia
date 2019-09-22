@@ -34,6 +34,8 @@ SECRET_KEY = get_env_variable('SECRET_KEY','#(5hd&!%c4)r8i$t!))y_0u^kpxdvgt*74p%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'accueil'
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

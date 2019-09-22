@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content%}
+
+<div class="container">
+<div class="card">
+	<h3 style="text-align: center;font-family: sans-serif;">Devenez membre de l'atelier iia</h3>
+	<div class="card-body">
+		{% crispy form %}
+
+	</div>
+
+</div>
+
+</div>
+
+<style>
+	label{
+	font-weight: bold
+}
+form{
+	
+}
+input{
+	border: solid 2px blueviolet;
+}
+</style>
+
+         
+            
+         
+
+
+
+{% endblock%}
+
+
+  {% block dashnav%}  
+  {% endblock %}
+
+
+
+   {% block state %}      
+   {% endblock %}
+
+      {% block end_dash %} 
+           
+      {% endblock %}

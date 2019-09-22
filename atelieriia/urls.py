@@ -33,5 +33,6 @@ urlpatterns = [
 
 
      path('test',views.test,name="test"),
+     path('signup',views.signup,name='signup'),
     
 ]

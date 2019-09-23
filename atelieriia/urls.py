@@ -37,7 +37,7 @@ urlpatterns = [
      path('test',views.test,name="test"),
      path('signup',views.signup,name='signup'),
 
-     path('',include('blog.urls')),
+     path('blog/',include('blog.urls')),
      path('profile',views.maj_info,name="maj_info"),
      
     

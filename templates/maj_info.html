@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+<div class="container">
+<div class="card">
+	<h3 style="text-align: center;font-family: sans-serif;">Mettre à jour vos informations</h3>
+	<div class="card-body">
+
+		<form enctype="multipart/form-data" style="" class="mt-4" method="POST" action="">
+
+		{% csrf_token %}
+				{{ form.as_p }}
+
+				<button class="mb-2 btn btn-primary" type="submit">Valider</button>
+		</form>
+	</div>
+
+</div>
+
+</div>
+
+<style>
+	label{
+	font-weight: bold
+}
+p{
+	text-align: left;
+	
+}
+input{
+	border: solid 2px blueviolet;
+}
+</style>
+
+         
+            
+         
+
+
+
+{% endblock%}
+
+
+  {% block dashnav%}  
+  {% endblock %}
+
+
+
+   {% block state %}      
+   {% endblock %}
+
+      {% block end_dash %} 
+           
+      {% endblock %}

@@ -5,6 +5,7 @@
 
 .hov_under:hover{
 	text-decoration: underline;
+	text-decoration-color: black;
 
 }
 

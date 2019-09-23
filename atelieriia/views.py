@@ -4,8 +4,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 
-#from .models import Post,Comment
-from .forms import UserForm
+from .models import Profile
+from .forms import UserForm,My_own_userForm
 
 
 from django.contrib.auth.decorators import login_required
@@ -36,7 +36,8 @@ def questions(request):
 
 
 def test(request):
-	return render(request,'test.html',{})
+	form = My_own_userForm
+	return render(request,'test.html',{'form':form})
 
 
 def signup(request):
@@ -49,3 +50,22 @@ def signup(request):
 	else:
 		form = UserForm()
 	return render(request,'registration/signup.html',{'form':form})
+
+@login_required
+def maj_info(request):
+	profile = Profile.objects.filter(user=request.user) or None
+	if request.method == 'POST':
+		if Profile.objects.filter(user=request.user).exists():
+			form = My_own_userForm(request.POST,request.FILES or None,instance=profile[0])
+		else:
+			form = My_own_userForm(request.POST,request.FILES or None)
+	  
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.user = request.user
+			post.save()
+			return redirect('accueil')
+	else:
+		form = My_own_userForm()
+	return render(request,'maj_info.html',{'form':form})
+

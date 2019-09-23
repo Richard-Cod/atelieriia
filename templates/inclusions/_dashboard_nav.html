@@ -7,6 +7,28 @@
             </form>
           </div>
           <div class="false">
+              <ul class="list-group text-center mb-4">
+               
+         
+  {% if user.is_authenticated and True %}
+            <div>
+              <p>Site Web : <a href="{{user.profile.website}}">{{user.profile.website}}</a> </p>
+
+              <p>Description : {{user.profile.description}}</p>
+              <p>Ville : {{user.profile.city}}</p>
+             
+
+
+           
+              <img class="img-fluid rounded-circle" height="100" width="100" src="{{user.profile.avatar.url}}" alt="">  
+
+
+            </div>
+                
+              
+      
+{% endif %}
+</ul>
             <ul class="mb-4 list-group">
             	<a class="list-group-item px-2 mb-1 " aria-current="page" href="{% url 'cours' %}">Cours</a>
             	<a class="list-group-item px-2 mb-1"  href="{% url 'projets' %}">Projets</a>
@@ -19,6 +41,9 @@
               <a class="list-group-item px-2" href="{% url 'questions' %}">Questions</a>
               
             </ul>
+
+          
+            
 
 
             <!--

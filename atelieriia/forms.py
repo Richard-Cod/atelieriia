@@ -1,15 +1,23 @@
 from django import forms
 from django.contrib.auth.models import User
 
+<<<<<<< HEAD
 #from .models import Post,Comment
+=======
+from .models import Profile
+>>>>>>> step3_myownconnexion
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit , Layout,Field
 from crispy_forms.bootstrap import PrependedText , PrependedAppendedText,FormActions
 
+<<<<<<< HEAD
 
 
 
+=======
+from django.db import models
+>>>>>>> step3_myownconnexion
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -44,4 +52,27 @@ class UserForm(forms.ModelForm):
 	    		raise forms.ValidationError("Ce mot de passe est trop simple")
 
 	    return cleaned_data
+<<<<<<< HEAD
 	
+=======
+
+"""
+class CViewerForm(forms.Form):
+	class Meta:
+		model = Profile
+		fields = ('name','status','genre')"""
+
+# accounts.models.py
+
+
+
+
+class My_own_userForm(forms.ModelForm):
+	class Meta:
+		model = Profile
+		fields = ('description','city','website','phone','avatar','genre')
+
+
+
+
+>>>>>>> step3_myownconnexion

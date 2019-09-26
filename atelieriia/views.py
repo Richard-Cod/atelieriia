@@ -15,9 +15,18 @@ from django.contrib.auth.decorators import login_required
 
 
 def accueil(request):
-	if User.objects.filter(id=4).exists():
-		print("T'inquiete ya pas de petard cest bien base")
-	return render(request,'index.html',{})
+	membres =[
+		{'nom':'Bathiebo',
+		'prenom':'Richard',
+		'description':'Je suis prési',
+		},
+
+		{'nom':'Meye',
+		'prenom':'Yannick',
+		'description':'Je suis responsable pedag'
+		}
+	]
+	return render(request,'index.html',{'membres':membres})
 
 def cours(request):
 	return render(request,'cours.html',{})

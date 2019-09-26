@@ -41,4 +41,4 @@ urlpatterns = [
      path('profile',views.maj_info,name="maj_info"),
      
     
-] + static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

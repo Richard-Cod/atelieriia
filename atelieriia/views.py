@@ -23,7 +23,7 @@ def accueil(request):
 
 		{'nom':'Meye',
 		'prenom':'Yannick',
-		'description':'Je suis responsable pedag'
+		'description':'Je suis responsable pedagogie'
 		}
 	]
 	return render(request,'index.html',{'membres':membres})

@@ -28,7 +28,10 @@ urlpatterns = [
     path('messages',views.messages,name="messages"),
     path('posts',views.posts,name="posts"),
     path('projets',views.projets,name="projets"),
+
+    
     path('questions',views.questions,name="questions"),
+    path('questions/<int:id>',views.questions_id,name="questions"),
 
  	path('accounts/login/',auth_view.LoginView.as_view(),name='login'),
     path('accounts/logout/',auth_view.LogoutView.as_view(),name='logout',kwargs={'next_page': '/'}),
@@ -39,6 +42,13 @@ urlpatterns = [
 
      path('blog/',include('blog.urls')),
      path('profile',views.maj_info,name="maj_info"),
+
+
+     path('response_to_comment/<int:id>',views.response_to_comment,name="response_to_comment"),
+
+
+
+     
      
     
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

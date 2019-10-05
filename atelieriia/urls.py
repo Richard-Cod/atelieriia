@@ -21,24 +21,40 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
+    #Vue de L'administration
     path('admin/', admin.site.urls),
+
+    #Vue pour l'application atelieriia
     path('',views.accueil,name="accueil"),
     path('cours',views.cours,name="cours"),
 
     path('messages',views.messages,name="messages"),
     path('posts',views.posts,name="posts"),
     path('projets',views.projets,name="projets"),
-    path('questions',views.questions,name="questions"),
 
+    
+   
+    #Toutes les vues de la partie registration
  	path('accounts/login/',auth_view.LoginView.as_view(),name='login'),
     path('accounts/logout/',auth_view.LogoutView.as_view(),name='logout',kwargs={'next_page': '/'}),
+    path('signup',views.signup,name='signup'),
 
+    #VUe de gestion de compte
+    path('profile',views.maj_info,name="maj_info"),
 
-     path('test',views.test,name="test"),
-     path('signup',views.signup,name='signup'),
-
+    #Vue de l'application BLOG
      path('blog/',include('blog.urls')),
-     path('profile',views.maj_info,name="maj_info"),
+     
+
+    #Vue de test
+    path('test',views.test,name="test"),
+
+    #Vue pour l'application de Question
+    path('q/',include('questions.urls')),
+
+
+
+     
      
     
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

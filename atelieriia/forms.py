@@ -43,22 +43,11 @@ class UserForm(forms.ModelForm):
 
 	    return cleaned_data
 
-"""
-class CViewerForm(forms.Form):
-	class Meta:
-		model = Profile
-		fields = ('name','status','genre')"""
-
-# accounts.models.py
-
-
 
 
 class My_own_userForm(forms.ModelForm):
 	class Meta:
 		model = Profile
 		fields = ('description','city','website','phone','avatar','genre')
-
-
 
 

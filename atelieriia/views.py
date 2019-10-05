@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404 ,redirect
+from django.shortcuts import render , get_object_or_404 ,redirect,HttpResponseRedirect
 from django.utils import timezone
 
 from django.contrib.auth.models import User
@@ -40,8 +40,7 @@ def posts(request):
 def projets(request):
 	return render(request,'projets.html',{})
 
-def questions(request):
-	return render(request,'questions.html',{})
+
 
 
 def test(request):
@@ -78,3 +77,40 @@ def maj_info(request):
 		form = My_own_userForm()
 	return render(request,'maj_info.html',{'form':form})
 
+
+
+
+
+"""
+@login_required
+def questions_id(request,id):
+	this = get_object_or_404(Question,id=id)
+
+	if request.method == 'POST':
+		if 'commentaire' in request.POST:
+			form = CommentForm(request.POST)
+			if form.is_valid():
+				comment = form.save(commit=False)
+				comment.question = this
+				comment.user =request.user
+				comment.save()
+				return redirect('questions',id=id)
+
+		elif 'reponse_to_comment' in request.POST:
+			response_to_comment_form = Response_to_comment_form(request.POST)
+			if form.is_valid():
+				post = response_to_comment_form.save(commit=False)
+				post.comment = this
+				post.user =request.user
+				post.save()
+				return redirect('questions',id=id)
+
+	else:
+		form = CommentForm()
+		response_to_comment_form=Response_to_comment_form()
+
+	return render(request,'question_detail.html',{'this':this,
+												  'comment_form':form,
+												  'response_form':response_to_comment_form})
+
+"""

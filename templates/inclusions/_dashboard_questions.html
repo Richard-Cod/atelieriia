@@ -4,7 +4,7 @@
       <div class="min-height">
 
         {% for this in questions%}
-          <a class="list-group-item mb-2" href="/questions/{{ this.id }}">
+          <a class="list-group-item mb-2" href="{% url 'questions' this.id %}">
               <div class="row">
                 <div class="col-2 col-md-1 text-center">
                     <div class="text-avatar-img-x text-avatar ">

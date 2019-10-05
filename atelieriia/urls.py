@@ -21,7 +21,10 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
+    #Vue de L'administration
     path('admin/', admin.site.urls),
+
+    #Vue pour l'application atelieriia
     path('',views.accueil,name="accueil"),
     path('cours',views.cours,name="cours"),
 
@@ -30,21 +33,24 @@ urlpatterns = [
     path('projets',views.projets,name="projets"),
 
     
-    path('questions',views.questions,name="questions"),
-    path('questions/<int:id>',views.questions_id,name="questions"),
-
+   
+    #Toutes les vues de la partie registration
  	path('accounts/login/',auth_view.LoginView.as_view(),name='login'),
     path('accounts/logout/',auth_view.LogoutView.as_view(),name='logout',kwargs={'next_page': '/'}),
+    path('signup',views.signup,name='signup'),
 
+    #VUe de gestion de compte
+    path('profile',views.maj_info,name="maj_info"),
 
-     path('test',views.test,name="test"),
-     path('signup',views.signup,name='signup'),
-
+    #Vue de l'application BLOG
      path('blog/',include('blog.urls')),
-     path('profile',views.maj_info,name="maj_info"),
+     
 
+    #Vue de test
+    path('test',views.test,name="test"),
 
-     path('response_to_comment/<int:id>',views.response_to_comment,name="response_to_comment"),
+    #Vue pour l'application de Question
+    path('q/',include('questions.urls')),
 
 
 

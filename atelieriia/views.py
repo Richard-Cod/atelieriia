@@ -28,8 +28,7 @@ def accueil(request):
 	]
 	return render(request,'index.html',{'membres':membres})
 
-def cours(request):
-	return render(request,'cours.html',{})
+
 
 def messages(request):
 	return render(request,'messages.html',{})

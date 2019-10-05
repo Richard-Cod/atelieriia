@@ -26,7 +26,6 @@ urlpatterns = [
 
     #Vue pour l'application atelieriia
     path('',views.accueil,name="accueil"),
-    path('cours',views.cours,name="cours"),
 
     path('messages',views.messages,name="messages"),
     path('posts',views.posts,name="posts"),
@@ -51,6 +50,9 @@ urlpatterns = [
 
     #Vue pour l'application de Question
     path('q/',include('questions.urls')),
+
+    #Vue pour l'application de Cours
+    path('cours/',include('cours.urls')),
 
 
 

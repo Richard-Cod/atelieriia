@@ -1,0 +1,102 @@
+{% load static %}
+<div class="order-2 order-md-2 col-12 col-md-10 min-height min-page-height py-3">
+
+	<div class="">
+		<div>
+			<div>
+				<div>
+					<div>
+						<nav class="d-md-block d-none" aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a class="undefined active" aria-current="page" href="/courses">Courses</a>
+								</li>
+							    <li class="active breadcrumb-item" aria-current="page">{{pere.titre}}
+							    </li>
+							</ol>
+						</nav>
+
+                    </div>
+
+
+                    <div class="mx-auto" 
+                    style="background-image: url('{% static 'images/bannieres/' %}{{pere.banniere}}');
+                     background-size: cover;background-position: center;">
+
+                    	<div class="" style="background-color: rgba(0, 0, 0, 0.5);">
+                    		<h1 class="mb-0 text-white">{{pere.titre}}</h1>
+	                    		
+	                    	<a class="text-white mx-auto active" aria-current="page" href="/courses/ecommerce">
+	                    		Catégorie : {{pere.categorie}}</a>
+	                    	   
+                    	   
+                    	</div>
+                    </div>
+
+
+<!--                                             PARTIE EXACTE DU TRUC                 -->
+            <div class="row">
+            	<div class="col-12 col-md-6">
+            		<div class="mb-5 mt-3"></div>
+            		<div class="pt-3">
+            			<div style="overflow: auto; max-height: 300px;">
+            				<h5 class="p-0 m-0">Lessons</h5>
+
+            				<div class="list-group" style="min-height: 450px;">
+            					<div style="position: relative; height: 500px;">
+            						<div style="transform: translate(0px);">
+            							<div>
+										  {% for this in cours %}
+            								<a class="list-group-item list-group-item-action " href="./{{this.id}}">{{forloop.counter}} - {{this.nom_partie}}  </a>
+		   						          {% endfor %}
+
+            							</div>
+
+            						</div>
+            					</div>
+            				</div>
+
+            			</div>
+            		</div>
+            	</div>
+
+    <div style="border: solid red 2px;" class="col-12 col-md-6">
+    
+		<div class="mb-3 py-3  border-bottom">
+			<div>
+
+				<iframe width="100%" height="315" src="https://www.youtube.com/embed/{{this.lien_video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+					
+				</iframe>
+
+			
+
+
+			 <div class="border rounded p-2 bg-white my-2"> 10 Lessons {{this}} </div>
+				<div class="border rounded p-2 bg-white my-2" level="1">
+					<span class=""></span>
+				{{pere.difficulte}}</div>
+		   </div>
+
+
+		   
+
+		</div>
+
+<span>
+	<a class="btn btn-block btn-cfe mt-3" href="./{{this.id}}">
+	 {{this.nom_partie}}
+	</a>
+</span>
+
+   </div>
+
+
+
+		</div>
+	    </div>
+		</div>
+		</div>
+
+
+</div>
+</div>

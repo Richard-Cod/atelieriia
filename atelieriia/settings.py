@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'blog',
     'atelieriia',
-    'questions'
+    'questions',
+    'cours',
     
 ]
 
@@ -76,6 +77,8 @@ TEMPLATES = [
         'DIRS': [
                     os.path.join(BASE_DIR,'templates'),
                     os.path.join(BASE_DIR,'blog','templates','blog'),
+                    os.path.join(BASE_DIR,'cours','templates','cours'),
+                    os.path.join(BASE_DIR,'questions','templates','questions'),
                     ],
         'APP_DIRS': True,
         'OPTIONS': {

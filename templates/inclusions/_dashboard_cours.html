@@ -1,4 +1,4 @@
-
+{% load static %}
     <div class="order-2 order-md-2 col-12 col-md-10 min-height min-page-height py-3">
       <div>
        
@@ -44,51 +44,32 @@
         <div class="row">
         
 
-   
-<div>
-  <div class="card mb-5 pt-3 pb-5 rounded-0 border-top-0 border-right-0 border-left-0">
-    <div class="row">
-      <div class="col-md-4">
-        <a class="mr-2" href="/courses/rest-api">
-          <img src="https://static.codingforentrepreneurs.com/media/courses/rest-api/images/rest_api_bg.jpg" class="w-100" alt="course REST API thumbnail">
-        </a>
-      </div>
-      <div class="col-md-8 px-3">
-        <div class="card-block px-3">
-          <h4 class="card-title undefined"> <a class="mr-2" href="/courses/rest-api">REST API</a></h4>
-          <div class=" markdown-preview  jm-markdown">
-            <p>Build a REST API by leveraging Django, Python and the Django Rest Framework. </p>
-            <p>REST APIs are here to connect your web application to anything and everything. Build microservices, connect to client-side technologies like Angular &amp; Ionic, and connect to other apps too.</p>
-            <p>This course will teach you exactly how to build one with Django and Python.</p>
+  {% for this in cours %} 
+    <div>
+
+      <div class="card mb-5 pt-3 pb-5 rounded-0 border-top-0 border-right-0 border-left-0">
+        <div class="row">
+          <div class="col-md-4">
+            <a class="mr-2" href="">
+              <img src="{% static 'images/bannieres/' %}{{this.banniere}}" class="w-100" alt="course REST API thumbnail">
+            </a>
           </div>
-          <a class="mr-2 btn btn-outline-primary" href="/courses/rest-api">View</a>
+          <div class="col-md-8 px-3">
+            <div class="card-block px-3">
+              <h4 class="card-title undefined"> <a class="mr-2" href="/courses/rest-api">{{this.titre}}</a></h4>
+              <div class=" markdown-preview  jm-markdown">
+                <p>{{this.description}}</p>
+              </div>
+              <a class="mr-2 btn btn-outline-primary" href="{% url 'partie_cours' nom=this.id_nom id=1 %}">Voir le cours</a>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
-</div>
-<div>
-  <div class="card mb-5 pt-3 pb-5 rounded-0 border-top-0 border-right-0 border-left-0">
-    <div class="row">
-      <div class="col-md-4">
-        <a class="mr-2" href="/courses/rest-api">
-          <img src="https://static.codingforentrepreneurs.com/media/courses/rest-api/images/rest_api_bg.jpg" class="w-100" alt="course REST API thumbnail">
-        </a>
-      </div>
-      <div class="col-md-8 px-3">
-        <div class="card-block px-3">
-          <h4 class="card-title undefined"> <a class="mr-2" href="/courses/rest-api">REST API</a></h4>
-          <div class=" markdown-preview  jm-markdown">
-            <p>Build a REST API by leveraging Django, Python and the Django Rest Framework. </p>
-            <p>REST APIs are here to connect your web application to anything and everything. Build microservices, connect to client-side technologies like Angular &amp; Ionic, and connect to other apps too.</p>
-            <p>This course will teach you exactly how to build one with Django and Python.</p>
-          </div>
-          <a class="mr-2 btn btn-outline-primary" href="/courses/rest-api">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+{% endfor %}
+
 
 
 </div>

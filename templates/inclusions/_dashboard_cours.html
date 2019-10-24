@@ -56,7 +56,7 @@
           </div>
           <div class="col-md-8 px-3">
             <div class="card-block px-3">
-              <h4 class="card-title undefined"> <a class="mr-2" href="/courses/rest-api">{{this.titre}}</a></h4>
+              <h4 class="card-title undefined"> <a class="mr-2" href="{% url 'partie_cours' nom=this.id_nom id=1 %}">{{this.titre}}</a></h4>
               <div class=" markdown-preview  jm-markdown">
                 <p>{{this.description}}</p>
               </div>

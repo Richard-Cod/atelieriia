@@ -11,22 +11,14 @@ from .forms import UserForm,My_own_userForm
 from django.contrib.auth.decorators import login_required
 
 
+from .mock_bureau import membres_bureau
 
 
 
 def accueil(request):
-	membres =[
-		{'nom':'Bathiebo',
-		'prenom':'Richard',
-		'description':'Je suis prési',
-		},
-
-		{'nom':'Meye',
-		'prenom':'Yannick',
-		'description':'Je suis responsable pedagogie'
-		}
-	]
-	return render(request,'index.html',{'membres':membres})
+	print(membres_bureau)
+	
+	return render(request,'index.html',{'membres_bureau':membres_bureau})
 
 
 
@@ -76,6 +68,15 @@ def maj_info(request):
 		form = My_own_userForm()
 	return render(request,'maj_info.html',{'form':form})
 
+
+@login_required
+def profile(request):
+	return render(request,'registration/profile.html',{})
+
+
+
+def bureau(request):
+	return render(request,'bureau.html',{})
 
 
 

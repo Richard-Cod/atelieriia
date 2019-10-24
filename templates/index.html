@@ -6,6 +6,127 @@
 
     {% block content%}
      {% load static %}
+
+
+     
+       <style>
+      .row.heading h2 {
+        color: #fff;
+        font-size: 52.52px;
+        line-height: 95px;
+        font-weight: 400;
+        text-align: center;
+        margin: 0 0 40px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+    }
+    ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .heading.heading-icon {
+        display: block;
+    }
+    .padding-lg {
+      display: block;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .practice-area.padding-lg {
+        padding-bottom: 55px;
+        padding-top: 55px;
+    }
+    .practice-area .inner{ 
+         border:1px solid #999999; 
+       text-align:center; 
+       margin-bottom:28px; 
+       padding:40px 25px;
+    }
+    .our-webcoderskull .cnt-block:hover {
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+        border: 0;
+    }
+    .practice-area .inner h3{ 
+        color:#3c3c3c; 
+      font-size:24px; 
+      font-weight:500;
+      font-family: 'Poppins', sans-serif;
+      padding: 10px 0;
+    }
+    .practice-area .inner p{ 
+        font-size:14px; 
+      line-height:22px; 
+      font-weight:400;
+    }
+    .practice-area .inner img{
+      display:inline-block;
+    }
+
+
+    .our-webcoderskull{
+      background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
+      
+    }
+    .our-webcoderskull .cnt-block{ 
+       float:left; 
+       width:100%; 
+       background:#fff; 
+       padding:30px 20px; 
+       text-align:center; 
+       border:2px solid #d5d5d5;
+       margin: 0 0 28px;
+    }
+    .our-webcoderskull .cnt-block figure{
+       width:148px; 
+       height:148px; 
+       border-radius:100%; 
+       display:inline-block;
+       margin-bottom: 15px;
+    }
+    .our-webcoderskull .cnt-block img{ 
+       width:148px; 
+       height:148px; 
+       border-radius:100%; 
+    }
+    .our-webcoderskull .cnt-block h3{ 
+       color:#2a2a2a; 
+       font-size:20px; 
+       font-weight:500; 
+       padding:6px 0;
+       text-transform:uppercase;
+    }
+    .our-webcoderskull .cnt-block h3 a{
+      text-decoration:none;
+      color:#2a2a2a;
+    }
+    .our-webcoderskull .cnt-block h3 a:hover{
+      color:#337ab7;
+    }
+    .our-webcoderskull .cnt-block p{ 
+       color:#2a2a2a; 
+       font-size:13px; 
+       line-height:20px; 
+       font-weight:400;
+    }
+    .our-webcoderskull .cnt-block .follow-us{
+      margin:20px 0 0;
+    }
+    .our-webcoderskull .cnt-block .follow-us li{ 
+        display:inline-block; 
+      width:auto; 
+      margin:0 5px;
+    }
+    .our-webcoderskull .cnt-block .follow-us li .fa{ 
+       font-size:24px; 
+       color:#767676;
+    }
+    .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
+       color:#025a8e;
+    }
+
+</style>
+    
 <div class="container-fluid bg-dark bg-img-cover" style="background-image: url(&quot;https://cfe2-static.s3-us-west-2.amazonaws.com:443/static/assets/img/cfe-header.jpg&quot;);">
 
 
@@ -282,7 +403,7 @@
           <li>Site Web</li>
           <li>Apps Mobile</li>
           <li> Apps Web</li>
-          <li> Programation</li>
+          <li> Programmation</li>
         </ul>
         <img src="http://atelieriia.pe.hu/img/developpeu.png" alt="" class="img-fluid">
         
@@ -521,7 +642,41 @@
 
 
 
-<!--  -->   
+<!--  -->  
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Les membres du bureau</h2>
+    </div>
+    <ul class="row">
+
+      {% for membre in membres_bureau|slice:":4" %}
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="{% static 'images/membres/' %}{{membre.image}}" class="img-responsive" alt=""></figure>
+            <h3><a href="http://www.webcoderskull.com/">  {{membre.nom}} {{membre.prenom}}</a></h3>
+            <p>{{membre.poste}}</p>
+            <ul class="follow-us clearfix">
+              <li><a href="{{membre.lien_facebook}}"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="{{membre.lien_twitter}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="{{membre.lien_linkdin}}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+      </li>
+
+
+
+      {% endfor %}
+
+
+
+     
+    </ul>
+  </div>
+</section> 
+
+
 
 
 <!-- LEs divers technologies -->
@@ -531,7 +686,7 @@
 <div class="card-columns">
 
   <div class="card">
-    <img src="{% static 'images/tec_icone/htmlcss.png' %}" class="card-img-top" alt="...">
+    <img  src="{% static 'images/tec_icone/htmlcss.png' %}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Html css</h5>
       <p class="card-text">Langage de description</p>
@@ -544,7 +699,7 @@
 
 
   <div class="card">
-    <img src="{% static 'images/tec_icone/js.png' %}" class="card-img-top" alt="...">
+    <img  src="{% static 'images/tec_icone/js.png' %}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">JavaScript</h5>
       <p class="card-text">Langage de script</p>
@@ -554,7 +709,7 @@
 
 
   <div class="card">
-    <img src="{% static 'images/tec_icone/python.png' %}" class="card-img-top" alt="...">
+    <img  src="{% static 'images/tec_icone/python.png' %}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Python</h5>
       <p class="card-text">Langage de script</p>
@@ -563,7 +718,7 @@
   </div>
 
     <div class="card">
-    <img src="{% static 'images/tec_icone/java.png' %}" class="card-img-top" alt="...">
+    <img  src="{% static 'images/tec_icone/java.png' %}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Java</h5>
       <p class="card-text">Langage de programmation à ne surtout pas confondre avec JavaScript</p>

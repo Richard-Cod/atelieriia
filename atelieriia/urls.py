@@ -31,6 +31,8 @@ urlpatterns = [
     path('posts',views.posts,name="posts"),
     path('projets',views.projets,name="projets"),
 
+    path('bureau',views.bureau,name="bureau"),
+
     
    
     #Toutes les vues de la partie registration
@@ -39,7 +41,10 @@ urlpatterns = [
     path('signup',views.signup,name='signup'),
 
     #VUe de gestion de compte
-    path('profile',views.maj_info,name="maj_info"),
+    path('profile',views.profile,name="profile"),
+
+    path('change_profile',views.maj_info,name="maj_info"),
+
 
     #Vue de l'application BLOG
      path('blog/',include('blog.urls')),

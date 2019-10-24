@@ -1,0 +1,184 @@
+<style>
+  textarea{
+    width: 100%;
+    height: 50px
+  }
+  .response label{
+    
+
+  }
+</style>
+
+
+
+
+<div class="order-2 order-md-2 col-12 col-md-10 min-height min-page-height py-3">
+  <div>
+    <nav class="d-md-block d-none" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="undefined active" aria-current="page" href="{% url 'questions' %}">Questions</a></li>
+        <li class="active breadcrumb-item" aria-current="page">
+          <span width="500"><span>
+            <span>{{this.titre}}</span></span>
+            <span style="position: fixed; visibility: hidden; top: 0px; left: 0px;"><span>...</span></span></span></li>
+            <li class="ml-auto breadcrumb-item"><button class="btn btn-link p-0 m-0"><a href="{% url 'questions' %}">Nouvelle Question</a></button> </li>
+
+      </ol>
+    </nav>
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-9 col-12">
+        <h3>{{this.titre}}</h3>
+        <div class="undefined   ">
+          <p>{{this.body}}<br>
+          
+          </p>
+        </div>
+      </div>
+
+<div class="col-md-3 col-12 text-md-left text-right">
+    <b> <a class="undefined" href="/u/LazerRaptor/">{{this.user.username}}</a></b>
+    <p class=""><span>{{this.date}}</span></p>
+</div>
+
+
+
+  <div class="col-md-9 mr-auto">
+    <div>
+      <div class="row">
+        <div class="col-12">
+         
+   
+            
+
+       
+
+<h5 style="text-decoration: underline;" class="text-center">Liste des commentaires pour cette question</h5>       
+
+{% for quest in this.question.all %}
+
+          <div>
+            <div id="comment-row-14416" class="row my-4 comment-row-14416 undefined">
+              <div class="comment-avatar col-2 text-center">
+                <a class="undefined" href="/u/jmitchel3">
+                  <div class="text-avatar text-avatar-img">
+                    <img class="mx-auto img-fluid rounded" src="{{quest.user.profile.avatar.url}}" alt="avatar">
+                  </div>
+                </a>
+              </div>
+              <div class="comment-content col-10">
+                <div class="row">
+                  <div class="col-8">
+                    <b> <a class="undefined" href="/u/jmitchel3/">{{ quest.user.username }} </a></b>
+                    <span class="comment-gray ml-2">{{ quest.created_date}}</span>
+                    <small class="comment-gray mx-2"><a class="undefined" href="#">#</a></small>
+                  </div>
+
+
+
+
+                </div>
+                <div class="comment-body mb-4" data-id="14416">
+                  <div>
+                    <div class="undefined   ">
+                    <p>{{ quest.text }}</p>
+                  </div>
+
+
+                   {%for reponse in quest.reponses.all %}
+                    <div class="col-10">
+                      <div style="" class="d-flex justify-content-left">
+
+                        
+                           <div class="comment-avatar col-2 text-center">
+                              <a class="undefined" href="/u/jmitchel3">
+                                <div class="text-avatar text-avatar-img">
+                                  <img class="mx-auto img-fluid rounded" src="{{reponse.user.profile.avatar.url}}" alt="avatar">
+                                </div>
+                              </a>
+                          </div>
+                          
+
+
+                        <div class="">
+                          <b> <a class="undefined" href="/u/jmitchel3/">{{ reponse.user.username }}  </a></b>
+                            <span class="comment-gray ml-2">{{ reponse.created_date}}</span>
+                            <div class="">
+                            <p>{{ reponse.text }}</p>
+                             </div>
+                          
+
+                        </div>
+                        
+
+
+
+                      </div>
+
+                   
+                       
+                        
+
+
+                  </div>
+                  <hr>
+                  {% endfor %}
+
+
+                <form style="" class="mt-4 response" method="POST" action="{% url 'response_to_comment' quest.id %}">
+                  {% csrf_token %}
+                  {{ response_form.as_p }}
+                  <input type="hidden" name="next" value="{{ request.path }}">
+                  <button style="float: right;" class="mb-2 btn btn-primary" type="submit">Répondre</button>
+                  
+                </form>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+
+
+  <h5 >Poster un commentaire</h5>
+
+               
+                <form style="" class="mt-4" method="POST" action="">
+                  {% csrf_token %}
+                  {{ comment_form.as_p }}
+                  <button style="float: right;" class="mb-2 btn btn-primary" type="submit">Commenter</button>
+                  
+                </form>
+
+      <br>  
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<script>
+  lab = document.querySelectorAll('.response label');
+  for (var i = 0; i < lab.length; i++) {
+    lab[i].textContent = "Répondre à ce commentaire"
+  }
+                                
+  
+</script>

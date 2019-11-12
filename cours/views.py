@@ -2,6 +2,8 @@ from django.shortcuts import render ,redirect
 from django.http import Http404,HttpResponseRedirect
 
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -12,6 +14,11 @@ def all_cours(request):
 	return render(request,'cours.html',{'cours':listes_de_cours})
 
 
+
+
+
+
+@login_required
 def do_cours(request,nom,id):
 	partie=0
 	for i in listes_de_cours:

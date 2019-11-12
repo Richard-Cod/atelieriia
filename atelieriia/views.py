@@ -62,6 +62,18 @@ def maj_info(request):
 		if form.is_valid():
 			post = form.save(commit=False)
 			post.user = request.user
+			img_recu =request.FILES['avatar']
+			emplacement = "media/avatars/"+img_recu.name
+			print("Les fichiers sont : ",)
+			#print("Les fichiers sont : ",request.FILES['avatar'].read())
+			
+
+			f=open(emplacement,"wb")
+			f.write(img_recu.read())
+			f.close()
+
+
+
 			post.save()
 			return redirect('accueil')
 	else:

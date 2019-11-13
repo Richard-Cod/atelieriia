@@ -13,12 +13,18 @@ from django.contrib.auth.decorators import login_required
 
 from .mock_bureau import membres_bureau
 
+from base64 import b64encode
+
+with open("default-profile.png","rb") as f:
+    z=f.read()
+ 
+
+
+default_image_binary = b64encode(z).decode("utf-8")
 
 
 def accueil(request):
-	print(membres_bureau)
-	
-	return render(request,'index.html',{'membres_bureau':membres_bureau})
+	return render(request,'index.html',{})
 
 
 
@@ -45,13 +51,13 @@ def signup(request):
 		if form.is_valid():
 			new_user = User.objects.create_user(**form.cleaned_data)
 			login(request,new_user)
-			return redirect('accueil')
+			return redirect('profile')
 	else:
 		form = UserForm()
 	return render(request,'registration/signup.html',{'form':form})
 
 @login_required
-def maj_info(request):
+def profile(request):
 	profile = Profile.objects.filter(user=request.user) or None
 	if request.method == 'POST':
 		if Profile.objects.filter(user=request.user).exists():
@@ -62,67 +68,34 @@ def maj_info(request):
 		if form.is_valid():
 			post = form.save(commit=False)
 			post.user = request.user
-			img_recu =request.FILES['avatar']
-			emplacement = "media/avatars/"+img_recu.name
-			print("Les fichiers sont : ",)
-			#print("Les fichiers sont : ",request.FILES['avatar'].read())
+			if 'avatar' in request.FILES:
+				img_recu =request.FILES['avatar']
+				image = b64encode(img_recu.read()).decode("utf-8")
+				post.binaire= image
+
+			if 'avatar-clear' in request.POST:
+				post.binaire = default_image_binary
+				print("zoumzoumlalamam")
 			
-
-			f=open(emplacement,"wb")
-			f.write(img_recu.read())
-			f.close()
-
-
 
 			post.save()
 			return redirect('accueil')
+
 	else:
-		form = My_own_userForm()
-	return render(request,'maj_info.html',{'form':form})
+		if profile:
+			form = My_own_userForm(instance=profile[0])
+		else:
+			form=My_own_userForm()
+		
+
+	return render(request,'registration/profile.html',{'form':form})
 
 
-@login_required
-def profile(request):
-	return render(request,'registration/profile.html',{})
 
 
 
 def bureau(request):
 	return render(request,'bureau.html',{})
 
-
-
-
-"""
-@login_required
-def questions_id(request,id):
-	this = get_object_or_404(Question,id=id)
-
-	if request.method == 'POST':
-		if 'commentaire' in request.POST:
-			form = CommentForm(request.POST)
-			if form.is_valid():
-				comment = form.save(commit=False)
-				comment.question = this
-				comment.user =request.user
-				comment.save()
-				return redirect('questions',id=id)
-
-		elif 'reponse_to_comment' in request.POST:
-			response_to_comment_form = Response_to_comment_form(request.POST)
-			if form.is_valid():
-				post = response_to_comment_form.save(commit=False)
-				post.comment = this
-				post.user =request.user
-				post.save()
-				return redirect('questions',id=id)
-
-	else:
-		form = CommentForm()
-		response_to_comment_form=Response_to_comment_form()
-
-	return render(request,'question_detail.html',{'this':this,
-												  'comment_form':form,
-												  'response_form':response_to_comment_form})
-
-"""
+def about(request):
+	return render(request,'about.html',{'membres_bureau':membres_bureau})

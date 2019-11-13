@@ -1,9 +1,9 @@
+{% load static %}
 
-
- <div style="background: blue">
+ <div style="background: brown">
   <nav class="navbar navbar-expand-lg navbar-light ">
   <a class="navbar-brand mr-2 active" aria-current="page" href="/">
-          <img src="https://cfe2-static.s3-us-west-2.amazonaws.com:443/static/img/icons/android-icon-48x48.png" class="d-inline-block align-top mr-1" alt="Coding for Entrepreneurs nav logo" width="30" height="30">
+  <img height="" src="{% static 'images/charte/logo.png' %}" class="d-inline-block align-top mr-1" alt="Logo" >
 
         </a>
         <form class="my-0 form d-none d-md-inline w-25"><input class="form-control mr-md-2" type="text" name="q" placeholder="Rechercher" aria-label="Search" value=""><button class="btn btn-outline-secondary d-none" type="submit">Rechercher</button>
@@ -22,10 +22,14 @@
           <ul class="ml-auto text-center navbar-nav"> 
      
 <li class="nav-item">
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated and user.profile %}
           <div> 
             
-            <img class="img-fluid rounded-circle" height="75" width="75" src="{{user.profile.avatar.url}}" alt=""> 
+        
+
+          
+            <img class="img-fluid rounded-circle" height="75" width="75" src="data:;base64,{{user.profile.binaire}}" alt=""> 
+        
            
           </div>
               
@@ -39,6 +43,10 @@
         </li>
           <li class="nav-item">
             <a style="color: white;font-size: 25px" class="nav-link text-white hov_under" href="{% url 'projets' %}">Projets</a>
+          </li>
+
+           <li class="nav-item">
+            <a style="color: white;font-size: 25px" class="nav-link text-white hov_under" href="{% url 'profile' %}">profile</a>
           </li>
          
 

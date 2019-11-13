@@ -9,132 +9,21 @@
 
 
      
-       <style>
-      .row.heading h2 {
-        color: #fff;
-        font-size: 52.52px;
-        line-height: 95px;
-        font-weight: 400;
-        text-align: center;
-        margin: 0 0 40px;
-        padding-bottom: 20px;
-        text-transform: uppercase;
-    }
-    ul{
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    .heading.heading-icon {
-        display: block;
-    }
-    .padding-lg {
-      display: block;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-    .practice-area.padding-lg {
-        padding-bottom: 55px;
-        padding-top: 55px;
-    }
-    .practice-area .inner{ 
-         border:1px solid #999999; 
-       text-align:center; 
-       margin-bottom:28px; 
-       padding:40px 25px;
-    }
-    .our-webcoderskull .cnt-block:hover {
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-        border: 0;
-    }
-    .practice-area .inner h3{ 
-        color:#3c3c3c; 
-      font-size:24px; 
-      font-weight:500;
-      font-family: 'Poppins', sans-serif;
-      padding: 10px 0;
-    }
-    .practice-area .inner p{ 
-        font-size:14px; 
-      line-height:22px; 
-      font-weight:400;
-    }
-    .practice-area .inner img{
-      display:inline-block;
-    }
-
-
-    .our-webcoderskull{
-      background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
       
-    }
-    .our-webcoderskull .cnt-block{ 
-       float:left; 
-       width:100%; 
-       background:#fff; 
-       padding:30px 20px; 
-       text-align:center; 
-       border:2px solid #d5d5d5;
-       margin: 0 0 28px;
-    }
-    .our-webcoderskull .cnt-block figure{
-       width:148px; 
-       height:148px; 
-       border-radius:100%; 
-       display:inline-block;
-       margin-bottom: 15px;
-    }
-    .our-webcoderskull .cnt-block img{ 
-       width:148px; 
-       height:148px; 
-       border-radius:100%; 
-    }
-    .our-webcoderskull .cnt-block h3{ 
-       color:#2a2a2a; 
-       font-size:20px; 
-       font-weight:500; 
-       padding:6px 0;
-       text-transform:uppercase;
-    }
-    .our-webcoderskull .cnt-block h3 a{
-      text-decoration:none;
-      color:#2a2a2a;
-    }
-    .our-webcoderskull .cnt-block h3 a:hover{
-      color:#337ab7;
-    }
-    .our-webcoderskull .cnt-block p{ 
-       color:#2a2a2a; 
-       font-size:13px; 
-       line-height:20px; 
-       font-weight:400;
-    }
-    .our-webcoderskull .cnt-block .follow-us{
-      margin:20px 0 0;
-    }
-    .our-webcoderskull .cnt-block .follow-us li{ 
-        display:inline-block; 
-      width:auto; 
-      margin:0 5px;
-    }
-    .our-webcoderskull .cnt-block .follow-us li .fa{ 
-       font-size:24px; 
-       color:#767676;
-    }
-    .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
-       color:#025a8e;
-    }
-
-</style>
     
 <div class="container-fluid bg-dark bg-img-cover" style="background-image: url(&quot;https://cfe2-static.s3-us-west-2.amazonaws.com:443/static/assets/img/cfe-header.jpg&quot;);height: 600px;">
 
 
   <div class="row py-5 text-light">
       <div class="col-12 mt-5 mb-2 mx-0 px-0 text-center pt-5 text-shadow">
-        <h1 class="uppercase">Atelier IIA</h1>
+        <h1 class="uppercase">Atelier IIA TEST</h1>
+        <img src="" alt="">
         <h4>Créez quelque chose de réel par vous même étape par étape.</h4>
+     
+
         <h4>Richard Bathiebo  & Alassane Aw & Rokhaya Sow & Yannick Meye</h4>
+       
+
 
       </div>
 
@@ -322,121 +211,6 @@
 <hr class="mt-4">
 <!-- NOS MEMBRES -->   
 
-<div style="border: solid 0.51px;box-shadow: 1px 2px 6px blue" class="col-12  mx-auto text-center d-md-none d-lg-none  mt-4 mb-4">
-  <!-- Section: Testimonials v.2 -->
-<section class="text-center my-5">
-
-  <!-- Section heading -->
-  <h2 style="text-decoration: underline;" class="h1-responsive font-weight-bold my-5">
-  Les membres du bureau 2019-2020
-</h2>
-
-  <div class="wrapper-carousel-fix">
-    <!-- Carousel Wrapper -->
-    <div id="carousel-example-1" class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel" data-interval="false">
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-
-        {% for membre in membres_bureau %}  
-        <div class="carousel-item {% if forloop.counter == 1%} active {% endif %}">
-          <div class="testimonial">
-            <!--Avatar-->
-            <div class="avatar mx-auto mb-4">
-              <h4 class="font-weight-bold">{{membre.prenom}} {{membre.nom}} </h4>
-              <h6 class="font-weight-bold my-3">{{membre.post}}</h6>
-
-              <div class="rounded-circle" style="height: 250px;width: 250px;border: solid;margin: auto;
-              background-image: url('/static/images/membres/{{membre.image}}');">
-
-                
-              </div>
-
-              <p style="text-decoration: underline;"><b>{{membre.poste}}</b></p> 
-              
-            </div>
-            <!--Content-->
-            <p>
-              <i class="fas fa-quote-left"></i> {{membre.description}}
-             </p>
-            
-            <!--Review
-            <i class="fas fa-star blue-text"> </i>
-            <i class="fas fa-star blue-text"> </i>
-            <i class="fas fa-star blue-text"> </i>
-            <i class="fas fa-star blue-text"> </i>
-            <i class="far fa-star blue-text"> </i>-->
-          </div>
-        </div>
-
-        {% endfor %}
-
-
-
-
-        <!--Third slide-->
-      </div>
-      <!--Slides-->
-      <!--Controls-->
-      <a class="carousel-control-prev left carousel-control" href="#carousel-example-1" role="button"
-        data-slide="prev">
-        <span style="height: 50px;width: 50px;color:black" class="icon-prev" aria-hidden="true">
-          <i class="fas fa-2x fa-chevron-circle-left"></i>
-        </span>
-        <span style="" class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next right carousel-control" href="#carousel-example-1" role="button"
-        data-slide="next">
-        <span style="height: 50px;width: 50px;color:black" class="icon-next" aria-hidden="true">
-          <i class="fas fa-2x fa-chevron-circle-right"></i>
-        </span>
-        <span style="" class="sr-only">Next</span>
-      </a>
-      <!--Controls-->
-    </div>
-    <!-- Carousel Wrapper -->
-  </div>
-
-</section>
-<!-- Section: Testimonials v.2 -->
-</div>
-
-
-
-
-
-<!--  -->  
-
-<section style="height: 700px" class="our-webcoderskull padding-lg d-none d-md-block d-lg-block">
-  <div class="container">
-    <div class="row heading heading-icon">
-        <h2>Les membres du bureau</h2>
-    </div>
-    <ul class="row">
-
-      {% for membre in membres_bureau|slice:":4" %}
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="{% static 'images/membres/' %}{{membre.image}}" class="img-responsive" alt=""></figure>
-            <h3><a href="http://www.webcoderskull.com/">  {{membre.nom}} {{membre.prenom}}</a></h3>
-            <p>{{membre.poste}}</p>
-            <ul class="follow-us clearfix">
-              <li><a href="{{membre.lien_facebook}}"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="{{membre.lien_twitter}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="{{membre.lien_linkdin}}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-      </li>
-
-
-
-      {% endfor %}
-
-
-
-     
-    </ul>
-  </div>
-</section> 
 
 
 

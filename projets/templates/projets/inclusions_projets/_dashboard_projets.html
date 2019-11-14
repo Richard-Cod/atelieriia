@@ -1,0 +1,132 @@
+{% load static %}
+   
+    <div class="order-2 order-md-2 col-12 col-md-10 min-height min-page-height py-3">
+      <div>
+       
+        <div class="text-left">
+          <div class="mb-2">
+            <div>
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h1>Projets</h1>
+                </div>
+
+
+
+                <div class="flex-shrink-1">
+                  <div class="dropdown">
+                    <button type="button" aria-haspopup="true" aria-expanded="false" class="btn btn-outline-secondary my-1 float-right dropdown-toggle btn btn-secondary">
+                      <span class="px-1">Recent</span>
+                    </button>
+                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                      <button type="button" name="Fire" value="-rank" tabindex="0" class="false dropdown-item">Fire</button>
+                      <button type="button" name="Ice" value="rank" tabindex="0" class="false dropdown-item">Ice</button>
+                      <button type="button" name="Recent" value="-timestamp" tabindex="0" class="active dropdown-item">Recent</button>
+                      <button type="button" name="Older" value="timestamp" tabindex="0" class="false dropdown-item">Older</button>
+                      <button type="button" name="A-Z" value="title" tabindex="0" class="false dropdown-item">A-Z</button>
+                      <button type="button" name="Z-A" value="-title" tabindex="0" class="false dropdown-item">Z-A</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            </div>
+          </div>
+
+         
+
+            <span class="btn btn-link btn-sm text-center d-none"></span>
+
+      </div>
+
+
+
+
+        <div class="row">
+
+{% for projet in projets %}
+
+          <div class="col-12 col-md-6 mb-3">
+            <div class="card">
+              <a class="undefined" href="/projects/jupyter-x-aws">
+
+                <img 
+                style="width: 100%"
+
+                 {% if projet.lien_image != "" %}   src="{{projet.lien_image}}" 
+
+                {% else %} src="{% static 'images/bannieres/' %}{{projet.image}}"
+
+                {% endif %}
+                
+                alt="Projet {{projet.titre}}">
+
+              </a>
+
+                <div class="card-body"><h4 class="card-title">{{projet.titre}}</h4><div class="undefined markdown-preview  jm-markdown"><p>{{projet.description}}</p>
+
+                  <p><a target="_self" href="{% url 'partie_cours' nom=projet.cours id=1 %}">Retour au cours</a></p></div>
+
+
+                <a class="btn btn-primary mt-2" href="{{projet.lien_vue}}">Jeter un oeil au résultat final</a>
+
+
+              </div>
+
+              </div>
+            </div>
+
+{% empty %}
+<p>Aucun projets</p>
+{% endfor %}
+
+
+
+
+
+
+              
+
+           
+
+   
+        </div>
+       
+
+
+ </div>
+    </div>
+
+    
+
+
+<!-- 
+
+
+<div class="container-fluid border-top py-5">
+  <div class="row">
+    <div class="col-12 mx-auto text-center mb-2"><small class="text-muted"><a class="undefined" href="/about">About</a> ·  
+      <a class="undefined" href="/suggest">Suggestions</a> · 
+       <a class="undefined" href="/contact">Contact</a> ·  
+       <a class="undefined" href="/connect">Connect</a>  ·  
+       <a class="undefined" href="/coming-soon">Coming Soon</a>
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mx-auto text-center">
+      <a class="undefined active" aria-current="page" href="/">
+        <img src="https://cfe2-static.s3-us-west-2.amazonaws.com:443/static/img/icons/android-icon-48x48.png" alt="footer logo" class="img-fluid rounded mr-3" width="30" height="30">
+      </a>
+      <small class="text-muted">© Copyright 2019 · atelieriia.herokuapp.com</small>
+
+    </div>
+  </div>
+
+</div>
+
+</div></div></div>
+
+
+-->

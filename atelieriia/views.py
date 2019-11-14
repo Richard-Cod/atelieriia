@@ -1,6 +1,5 @@
 from django.shortcuts import render , get_object_or_404 ,redirect,HttpResponseRedirect
 from django.utils import timezone
-
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 
@@ -26,14 +25,6 @@ def accueil(request):
 
 def messages(request):
 	return render(request,'messages.html',{})
-
-def posts(request):
-	return render(request,'posts.html',{})
-
-def projets(request):
-	return render(request,'projets.html',{})
-
-
 
 
 def test(request):

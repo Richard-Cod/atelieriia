@@ -28,8 +28,9 @@ urlpatterns = [
     path('',views.accueil,name="accueil"),
 
     path('messages',views.messages,name="messages"),
-    path('posts',views.posts,name="posts"),
-    path('projets',views.projets,name="projets"),
+
+
+
 
     path('about',views.about,name="about"),
 
@@ -57,6 +58,10 @@ urlpatterns = [
 
     #Vue pour l'application de Cours
     path('cours/',include('cours.urls')),
+
+    #Vue pour l'application de Projets
+    path('projets/',include('projets.urls')),
+
 
 
 

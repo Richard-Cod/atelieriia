@@ -11,142 +11,117 @@
 </style>
 
 <div style="margin-top: 20px;" class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img style="height: 200px"  src="data:;base64,{{ user.profile.binaire }}" alt=""/>
-                          
-                        </div>
-                    </div>
-                    
-                      <div class="col-md-6">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                               
-                                                <p>{{user.id}}</p>
-                                              
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.username}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.email}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {% if user.profile.phone %}
-                                                <p>{{user.profile.phone}}</p>
-                                                {% else %}
-                                                <p>XXXXX</p>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Description</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {% if user.profile.description %}
-                                                <p>{{user.profile.description}}</p>
-                                                {% else %}
-                                                <p>XXXXX</p>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Ville</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {% if user.profile.city %}
-                                                <p>{{user.profile.city}}</p>
-                                                {% else %}
-                                                <p>XXXXX</p>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Site Web</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {% if user.profile.website %}
-                                                <p>{{user.profile.website}}</p>
-                                                {% else %}
-                                                <p>XXXXX</p>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Genre</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {% if user.profile.genre == 1%}
-                                                <p>Homme</p>
-                                                {% elif user.profile.genre == 2 %}
-                                                <p>Femme</p>
-                                                {% else %}
-                                                <p>XXXXX</p>
-
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                            </div>
-                         
-                        </div>
-                    </div>
-                    
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img style="height: 200px"  src="data:;base64,{{ user.profile.binaire }}" alt=""/>
+                  
                 </div>
+            </div>
+            
+
+
+            <table style="max-width: 500px" class="table table-dark">
                 
-            </form>           
+                    <tr>
+                      <th scope="row">User Id</th>
+                      <td>{{user.id}}</td>
+                     
+                    </tr>
+                    <tr>
+                      <th scope="row">Name</th>
+                      <td>{{user.username}}</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">Email</th>
+                      <td>{{user.email}}</td>
+                     
+                    </tr>
+                    <tr>
+                      <th scope="row">Phone</th>
+                      {% if user.profile.phone %}
+                                        <td>{{user.profile.phone}}</td>
+                                        {% else %}
+                                        <td>XXXXX</td>
+                                        {% endif %}
+                     
+                    </tr>
+                    <tr>
+                      <th scope="row">Description</th>
+                      {% if user.profile.description %}
+                                        <td>{{user.profile.description}}</td>
+                                        {% else %}
+                                        <td>XXXXX</td>
+                                        {% endif %}
+                     
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Ville</th>
+                       {% if user.profile.city %}
+                                        <td>{{user.profile.city}}</td>
+                                        {% else %}
+                                        <td>XXXXX</td>
+                                        {% endif %}
+                     
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Site Web</th>
+                      {% if user.profile.website %}
+                                        <td><a class="text-white" href="{{user.profile.website}}">{{user.profile.website}}</a></td>
+                                        {% else %}
+                                        <td>XXXXX</td>   
+                                        {% endif %}
+                     
+                    </tr>
+
+                     <tr>
+                      <th scope="row">Genre</th>
+                       {% if user.profile.genre == 1%}
+                                        <td>Homme</td>
+                                        {% elif user.profile.genre == 2 %}
+                                        <td>Femme</td>
+                                        {% else %}
+                                        <td>XXXXX</td>
+
+                                        {% endif %}
+                     
+                    </tr>
+                
+            </table>
+            
+        </div>
+        
+    </form>           
+</div>
+
+
+<hr>
+
+<div class="mt-4">
+    <div>
+        <h3 style="text-align: center;font-family: sans-serif;">Mettre à jour vos informations</h3>
+        <div style="max-width: 800px;border: dotted 1px ;" class="card-body mx-auto">
+
+            <form enctype="multipart/form-data" style="" class="mt-4" method="POST" action="">
+
+            {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button class="mb-2 btn btn-primary" type="submit">Valider</button>
+            </form>
         </div>
 
-
-
-
-<div class="container mt-4">
-<div class="card">
-    <h3 style="text-align: center;font-family: sans-serif;">Mettre à jour vos informations</h3>
-    <div style="max-width: 800px;border: dotted 1px ;" class="card-body">
-
-        <form enctype="multipart/form-data" style="" class="mt-4" method="POST" action="">
-
-        {% csrf_token %}
-                {{ form.as_p }}
-
-                <button class="mb-2 btn btn-primary" type="submit">Valider</button>
-        </form>
     </div>
-
-</div>
 
 </div>
 
 <style>
     label{
+    font-size: 12px;
     font-weight: bold;
 
 }
@@ -158,6 +133,7 @@ input{
     border: solid 2px blueviolet;
     display: block;
     float: right;
+    font-size: 14px;
 
 }
 select{

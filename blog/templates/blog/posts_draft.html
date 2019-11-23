@@ -6,20 +6,28 @@
 			
 			
 			{% for i in posts%}
+      <div id="celui">
+        
+      
 
-						<a href="{% url 'post_publish' i.id %}">PUBLISH</a>
+						<a data-id='{{i.id}}'  href="{% url 'post_publish' %}">PUBLISH {{i.id}} </a>
+
+            <button class="publisher" data-id='{{i.id}}' class="btn btn-success">Faire</button>
 						<a style="text-decoration: none;font-size: 2em" href="{% url 'post_edit' i.id %}"><i class="fas fa-pencil-alt fa-spin"></i></a>
 
 			
 						<p>Published : {{i.published_date}}</p>
-						<h2><a href="{% url 'post_detail' i.id%}">{{i.title}}</a></h2>
+						<h2><a href="{% url 'post_detail' i.id%}">{{i.title}} {{ forloop.counter}}</a></h2>
 						<p>{{i.text}}</p>
+      </div>
 			
 
 			{% endfor %%}
 		
 			
 		</div>
+
+
 
 {% endblock%}
 
@@ -33,3 +41,48 @@
 
       {% block end_dash %} 
       {% endblock %}
+
+ {% block javascript %} 
+
+ 		{{ block.super }}
+ 		    <script type="text/javascript">
+  
+      $('.publisher').click(function(){ 
+      	
+      var id; 
+      celui = this
+
+      id = $(this).attr("data-id"); 
+      console.log(id)
+
+      $.ajax( 
+      { 
+          type:"GET", 
+          url: "publish", 
+          data:{id: id}, 
+
+
+          success: function( data ) { 
+          //$( '#like'+ id ).removeClass('btn btn-primary btn-lg'); 
+          //$( '#like'+ id ).addClass('btn btn-success btn-lg');
+          console.log("waaaohjdekjdkjedbke")
+          $(celui).parent("#celui").remove()
+
+
+           }      
+
+
+           
+       })
+
+
+
+     
+
+
+           });
+</script>
+      {% endblock %}
+
+
+  

@@ -62,7 +62,7 @@ def profile(request):
 
 			if 'avatar-clear' in request.POST:
 				post.binaire = default_image_binary
-				print("zoumzoumlalamam")
+		
 			
 
 			post.save()

@@ -52,14 +52,18 @@ def draft_list_view(request):
 	posts= Post.objects.filter(published_date=None).order_by('-created_date')
 	return render(request,'blog/posts_draft.html',{'posts':posts})
 
+#AJAX
 @login_required
-def draft_list_publish(request,id):
-	post = Post.objects.get(id=id)
-	print(post)
-	post.published_date = timezone.now()
-	post.save()
+def draft_list_publish(request):
+	if request.method == 'GET':
+		if "id" in request.GET:
+			id= request.GET["id"]
+			post = Post.objects.get(id=id)
+			post.published_date = timezone.now()
+			post.save()
+			
 	
-	return redirect('post_list')
+	return redirect('post_draft')
 
 
 

@@ -1,12 +1,30 @@
 {% load static %}
 
+<style>
+  .nav-item a{
+    font-size: 18px;
+    color: white;
+  }
+  .image_profile{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 50%;
+    height: 75px;
+    width:75px;
+    border: solid;
+    background-image: url(data:;base64,{{user.profile.binaire}})
+  }
+</style>
  <div style="background: brown">
   <nav class="navbar navbar-expand-lg navbar-light ">
   <a class="navbar-brand mr-2 active" aria-current="page" href="/">
-  <img height="" src="{% static 'images/charte/logo.png' %}" class="d-inline-block align-top mr-1" alt="Logo" >
+  <img width="100px" src="{% static 'images/charte/logo.png' %}" class="d-inline-block align-top mr-1" alt="Logo" >
 
         </a>
-        <form class="my-0 form d-none d-md-inline w-25"><input class="form-control mr-md-2" type="text" name="q" placeholder="Rechercher" aria-label="Search" value=""><button class="btn btn-outline-secondary d-none" type="submit">Rechercher</button>
+        <form class="my-0 form d-none d-md-inline w-25">
+          <input class="form-control mr-md-2" type="text" name="q" placeholder="Rechercher" aria-label="Search" value="">
+          <button class="btn btn-outline-secondary d-none" type="submit">Rechercher</button>
         </form>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,62 +33,52 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
   
      <ul class="text-center navbar-nav">
-            <li style="color: white;font-size: 25px" class="nav-item nav-link">Salut {{user.username|upper}}</li>
-           
-            
-          </ul>
-          <ul class="ml-auto text-center navbar-nav"> 
-     
-<li class="nav-item">
-          {% if user.is_authenticated and user.profile %}
-          <div> 
-            
-        
+            <li style="color: white;font-size: 18px" class="nav-item nav-link">Salut {{user.username|upper}}</li>    
+     </ul>
+                      <img class="img-fluid rounded-circle" height="75" width="75" src="" alt=""> 
 
-          
-            <img class="img-fluid rounded-circle" height="75" width="75" src="data:;base64,{{user.profile.binaire}}" alt=""> 
-        
-           
-          </div>
-              
-          
-
-          {% endif %}
-           
- </li>
+      <ul class="ml-auto text-center navbar-nav"> 
           <li class="nav-item">
-            <a style="color: white;font-size: 25px" class="nav-link text-white hov_under" href="{% url 'cours' %}">Cours</a>
+                    {% if user.is_authenticated and user.profile %}
+                    <div class="image_profile" > 
+
+                    </div>
+                    {% endif %}     
+           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white hov_under" href="{% url 'cours' %}">Cours</a>
         </li>
           <li class="nav-item">
-            <a style="color: white;font-size: 25px" class="nav-link text-white hov_under" href="{% url 'projets' %}">Projets</a>
+            <a class="nav-link text-white hov_under" href="{% url 'projets' %}">Projets</a>
           </li>
 
            <li class="nav-item">
-            <a style="color: white;font-size: 25px" class="nav-link text-white hov_under" href="{% url 'profile' %}">profile</a>
+            <a class="nav-link text-white hov_under" href="{% url 'profile' %}">profile</a>
           </li>
+          
          
 
-{% if user.is_authenticated == False %}         
-          <li class="nav-item">
-            <a style="font-size: 25px" class="nav-link text-white hov_under" href="{% url 'login' %}">Se connecter</a>
-          </li>
-{% endif %}       
+          {% if user.is_authenticated == False %}         
+              <li class="nav-item">
+                <a class="nav-link text-white hov_under" href="{% url 'login' %}">Se connecter</a>
+              </li>
+          {% endif %}       
 
-{% if user.is_authenticated %}  
-          <li class="nav-item">
-            <a style="font-size: 25px" class="nav-link text-white hov_under" href="{% url 'logout' %}">Se Déconnecter</a>
-          </li>
-{% endif %}
+          {% if user.is_authenticated %}  
+              <li class="nav-item">
+                <a class="nav-link text-white hov_under" href="{% url 'logout' %}">Se Déconnecter</a>
+              </li>
+          {% endif %}
 
-{% if user.is_authenticated == False %} 
-          <li class="nav-item">
-            <a class="nav-link text-white hov_under bg-warning text-dark rounded" href="{% url 'signup' %}">S'inscrire</a>
-          </li>
-{% endif %}
+          {% if user.is_authenticated == False %} 
+              <li class="nav-item">
+                <a class="nav-link text-white hov_under bg-warning text-dark rounded" href="{% url 'signup' %}">S'inscrire</a>
+              </li>
+          {% endif %}
 
 
         
-        </ul>
+       </ul>
      
    
   </div>
